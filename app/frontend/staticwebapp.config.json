@@ -1,24 +1,27 @@
 {
-  "routes": [
-      {
-          "route": "/.auth/login/twitter",
-          "statusCode": 404
-      },
-      {
-          "route": "/.auth/login/github",
-          "statusCode": 404
-      },
-      {
-          "route": "/*",
-          "allowedRoles": [
-              "authenticated"
-          ]
-      }
-  ],
-  "responseOverrides": {
-      "401": {
-          "statusCode": 302,
-          "redirect": "/.auth/login/aad"
-      }
-  }
+    "auth": {
+        "identityProviders": {
+            "azureActiveDirectory": {
+                "registration": {
+                    "openIdIssuer": "https://login.microsoftonline.com/53fe4727-cc42-4e6a-94d2-ff2c63be1670/v2.0",
+                    "clientIdSettingName": "b52e1b88-43d5-4648-86e4-914d17dad829",
+                    "clientSecretSettingName": "e83e4d72-587c-4fdb-a7b1-ddf256d70afe"
+                }
+            }
+        }
+    },
+    "routes": [
+        {
+            "route": "/*",
+            "allowedRoles": [
+                "authenticated"
+            ]
+        }
+    ],
+    "responseOverrides": {
+        "401": {
+            "statusCode": 302,
+            "redirect": "/.auth/login/aad"
+        }
+    }
 }
