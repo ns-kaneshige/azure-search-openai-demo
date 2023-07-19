@@ -21,7 +21,7 @@
     "responseOverrides": {
         "401": {
             "statusCode": 302,
-            "redirect": "https://login.microsoftonline.com/53fe4727-cc42-4e6a-94d2-ff2c63be1670/v2.0"
+            "redirect": "/.auth/login/aad"
         }
     }
 }
